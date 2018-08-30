@@ -15,10 +15,19 @@ function MovingAverage (timespan) {
   let f = 0  // forecast
 
   let previousTime
+  let firstTime
+  let primed = false
 
   let ret = {}
 
   function alpha (t, pt) {
+    let localtimespan = timespan
+    
+    if (!primed) {
+      localtimespan = Math.min(t-firstTime, timespan);
+      primed = localtimespan == timespan
+    }
+    
     return 1 - (exp(-(t - pt) / timespan))
   }
 
