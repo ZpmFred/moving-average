@@ -28,7 +28,7 @@ function MovingAverage (timespan) {
       primed = localtimespan == timespan
     }
     
-    return 1 - (exp(-(t - pt) / timespan))
+    return 1 - (exp(-(t - pt) / localtimespan))
   }
 
   ret.push =
