@@ -24,6 +24,10 @@ function MovingAverage (timespan) {
     let localtimespan = timespan
     
     if (!primed) {
+      if (!firstTime) {
+        firstTime = t;
+      }
+      
       localtimespan = Math.min(t-firstTime, timespan);
       primed = localtimespan == timespan
     }
