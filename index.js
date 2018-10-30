@@ -28,7 +28,7 @@ function MovingAverage (timespan) {
         firstTime = t;
       }
       
-      localtimespan = Math.min(t-firstTime, timespan);
+      localtimespan = Math.max(1, Math.min(t-firstTime, timespan));
       primed = localtimespan == timespan
     }
     
